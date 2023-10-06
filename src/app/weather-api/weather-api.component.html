@@ -1,0 +1,81 @@
+<div class="container weather-app">
+    <main>
+        <!-- Heading and Search -->
+        <h1>Weather App</h1>
+        <label for="city">Enter a city:</label>
+        <input type="text" id="city" [(ngModel)]="city" [formControl]="cityControl" (keyup.enter)="getWeather()"
+            placeholder="Please enter a valid city name" />
+        <div aria-live="polite" aria-atomic="true">
+            <div *ngIf="errorMessage || cityControl.hasError('pattern') && cityControl.touched" class="error-message">{{ errorMessage }}</div>
+        </div>
+        <button class="get-weather" role="button" (click)="getWeather()"><span class="text">Get Weather</span></button>
+        <!-- Weather Card -->
+        <div class="weather-card" *ngIf="weatherData">
+            <img class="weather-image" [src]="'../../assets/' + weatherImage" alt="Weather Image" aria-hidden="true" />
+
+            <!-- Overlay with white text -->
+            <div class="weather-overlay">
+                <h3 class="weather-city"
+                    attr.aria-label="Current weather in: {{ weatherData.name }}, {{ weatherData.sys.country }}">{{
+                    weatherData.name }}, {{ weatherData.sys.country }}</h3>
+                <p class="weather-temperature">{{ weatherData.main.temp }}°C</p>
+                <p class="weather-feels-like">Feels like: {{ weatherData.main.feels_like }}°C</p>
+                <span class="cdk-visually-hidden">Continue for more detailed information for the day</span>
+            </div>
+            <!-- Rest of weather information -->
+            <div class="more-info">
+                <p class="weather-description">Weather description: {{ weatherData.weather[0].description }}</p>
+                <div class="row min-max">
+                    <div class="minimum">
+                        <img src="../../assets/min.png" alt="temperature minimum icon" class="icon temperature minimum"
+                            aria-label="Minimuim temperature for today">
+                        <span aria-hidden="true">Min:</span>
+                        <span class="weather-min">{{ weatherData.main.temp_min }}°C</span> <br />
+                    </div>
+                    <div class="maximum">
+                        <img src="../../assets/max.png" alt="temperature maximum icon" class="icon temperature maximum"
+                            aria-label="Maximum temperature for today">
+                        <span aria-hidden="true">Max:</span>
+                        <span class="weather-max">{{ weatherData.main.temp_max }}°C</span> <br />
+                    </div>
+                </div>
+                <div class="row pressure-humidity">
+                    <div class="pressure">
+                        <img src="../../assets/pressure.png" alt="pressure icon" class="icon pressure"
+                            aria-hidden="true">
+                        <span>Pressure:</span>
+                        <span class="weather-pressure">{{ weatherData.main.pressure }}</span> <br />
+                    </div>
+                    <div class="humidity">
+                        <img src="../../assets/humidity.png" alt="humidity icon" class="icon humidity"
+                            aria-hidden="true">
+                        <span>Humidity:</span>
+                        <span class="weather-humidity">{{ weatherData.main.humidity }}%</span> <br />
+                    </div>
+                    <div class="visibility">
+                        <img src="../../assets/visibility.png" alt="visibility icon" class="icon visibility"
+                            aria-hidden="true">
+                        <span>Visibility:</span>
+                        <span class="weather-visibility">{{ weatherData.visibility }}</span> <br />
+                    </div>
+                    <div class="wind-speed">
+                        <img src="../../assets/wind.png" alt="wind icon" class="icon wind" aria-hidden="true">
+                        <span>Wind (speed):</span>
+                        <span class="weather-wind-speed">{{ weatherData.wind.speed }} km/h </span> <br />
+                    </div>
+                </div>
+                <div class="row sunrise-sunset">
+                    <div class="sunrise">
+                        <img src="../../assets/sunrise.png" alt="sunrise icon" class="icon sunrise" aria-hidden="true">
+                        <span class="weather-sunrise">Sunrise at: <strong>{{ weatherData.sys.sunrise }}</strong></span>
+                        <br />
+                    </div>
+                    <div class="sunset">
+                        <img src="../../assets/sunset.png" alt="sunset icon" class="icon sunset" aria-hidden="true">
+                        <span class="weather-sunset">Sunset at: <strong>{{ weatherData.sys.sunset }}</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

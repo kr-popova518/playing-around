@@ -1,0 +1,25 @@
+  <mat-toolbar class="nav-toolbar" color="primary">
+   
+    <button mat-button class="title" routerLink="/home">Playing Around</button>
+
+
+    <button mat-icon-button class="nav-menu-mobile" [matMenuTriggerFor]="menu" aria-label="Top navigation menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="mobile-expanded">
+      <button mat-menu-item  routerLink="/home">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item routerLink="/weather-api">
+        <mat-icon>cloud_queue</mat-icon>
+        <span>Weather API</span>
+      </button>
+    </mat-menu>
+
+    <div class="nav-menu-desktop"> 
+      <button mat-button routerLink="/home">A HOME button</button>
+      <button mat-button routerLink="/weather-api">And a weather API</button>
+    </div>
+
+  </mat-toolbar>

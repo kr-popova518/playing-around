@@ -1,0 +1,63 @@
+@import 'src/global-variables.scss';
+
+.nav-toolbar {
+    justify-content: space-between;
+    min-width: 278px;
+
+    .nav-menu-mobile {}
+
+    .nav-menu-desktop {
+        display: none;
+        height: 100%;
+
+        button {
+            height: 100%;
+        }
+    }
+
+    .title {
+        height: 100%;
+        font-size: x-large;
+    }
+
+
+
+    @media (min-width: $tablet) {}
+
+    @media (min-width: $desktop-small) {
+        .nav-menu-desktop {
+            display: block;
+        }
+
+        .nav-menu-mobile {
+            display: none;
+        }
+    }
+}
+
+::ng-deep .mobile-expanded {
+    display: block;
+    border: 1px solid $primary;
+
+    &.mat-mdc-menu-panel {
+        background-color: $primary;
+        position: fixed;
+        right: 0;
+        top: 39px;
+        box-shadow: none;
+
+        button {
+            color: white;
+        }
+
+        mat-icon {
+            color: white;
+        }
+    }
+}
+
+@media (min-width: $desktop-small) {
+    ::ng-deep .mobile-expanded {
+        display: none;
+    }
+}
