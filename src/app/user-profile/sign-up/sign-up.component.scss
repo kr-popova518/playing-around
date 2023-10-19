@@ -1,0 +1,17 @@
+@import 'src/global-variables.scss';
+@import 'bootstrap/scss/bootstrap';
+
+.register-button {
+    background-color: $light-purple;
+}
+
+.google-signup {
+    margin-bottom: 15px;
+
+    .lead {
+        text-align: center;
+    }
+}
+.link-back-to-login {
+    margin-left: 5px;
+}

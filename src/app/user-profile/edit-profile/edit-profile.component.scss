@@ -1,0 +1,25 @@
+@import 'bootstrap/scss/bootstrap';
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .gradient-button {
+    background-image: linear-gradient(to right, #8A2BE2, #4B0082);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+  }
+
+  .gradient-button:hover {
+    background-image: linear-gradient(to right, #4B0082, #8A2BE2);
+  }
+
+}

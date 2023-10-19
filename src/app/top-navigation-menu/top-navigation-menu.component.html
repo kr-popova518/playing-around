@@ -1,25 +1,37 @@
-  <mat-toolbar class="nav-toolbar" color="primary">
-   
-    <button mat-button class="title" routerLink="/home">Playing Around</button>
-
-
-    <button mat-icon-button class="nav-menu-mobile" [matMenuTriggerFor]="menu" aria-label="Top navigation menu">
-      <mat-icon>menu</mat-icon>
+<mat-toolbar role="navigation" class="nav-toolbar" color="primary">
+  <button mat-button class="title" routerLink="/home">Playing Around</button>
+  <button mat-icon-button class="nav-menu-mobile" [matMenuTriggerFor]="menu" aria-label="Top navigation menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="mobile-expanded">
+    <button mat-menu-item routerLink="/home">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
     </button>
-    <mat-menu #menu="matMenu" class="mobile-expanded">
-      <button mat-menu-item  routerLink="/home">
-        <mat-icon>home</mat-icon>
-        <span>Home</span>
-      </button>
-      <button mat-menu-item routerLink="/weather-api">
-        <mat-icon>cloud_queue</mat-icon>
-        <span>Weather API</span>
-      </button>
-    </mat-menu>
+    <button mat-menu-item routerLink="/weather-api">
+      <mat-icon>cloud_queue</mat-icon>
+      <span>Weather API</span>
+    </button>
+    <button mat-menu-item routerLink="/sign-in">
+      <mat-icon>account_circle</mat-icon>
+      <span>Sign In</span>
+    </button>
+  </mat-menu>
 
-    <div class="nav-menu-desktop"> 
-      <button mat-button routerLink="/home">A HOME button</button>
-      <button mat-button routerLink="/weather-api">And a weather API</button>
-    </div>
+  <div class="nav-menu-desktop">
+    <button mat-button routerLink="/home">Home</button>
+    <button mat-button routerLink="/weather-api">Weather API</button>
+    <button mat-button routerLink="/sign-in"><img class="user-profile" src="../../assets/user-profile.png"
+        alt="user profile" /></button>
+  </div>
 
-  </mat-toolbar>
+</mat-toolbar>
+
+<!-- Navbar -->
+<nav class="user-only-navigation navbar navbar-expand-lg" *ngIf="authService.UserData as user">
+  <div class="container-fluid">
+    <a routerLink="/dashboard">User Dashboard</a>
+    <a routerLink="/edit-profile">Edit profile</a>
+    <a href="#" (click)="authService.Logout()">Logout</a>
+  </div>
+</nav>

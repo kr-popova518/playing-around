@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { WeatherDataService } from './weather-data.service';
 
 describe('WeatherDataService', () => {
@@ -14,4 +13,3 @@ describe('WeatherDataService', () => {
     expect(service).toBeTruthy();
   });
 });
-

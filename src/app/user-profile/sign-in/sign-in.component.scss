@@ -1,0 +1,32 @@
+@import 'src/global-variables.scss';
+@import 'bootstrap/scss/bootstrap';
+
+.log-in-form {
+    .login-button {
+        background-color: $light-purple;
+    }
+
+    .google-login {
+        margin-bottom: 15px;
+
+        .lead {
+            text-align: center;
+        }
+    }
+}
+
+.link-reset-password, .link-register {
+    margin-left: 5px;
+}
+
+@media (min-width: $desktop-big) {
+    .log-in-form {
+        .input-fields {
+            margin-left: 30px;
+        }
+
+        .google-login {
+            margin-bottom: 0;
+        }
+    }
+}

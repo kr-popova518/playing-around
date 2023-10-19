@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "playing-around-737": {
+      "hosting": {
+        "playing-around": [
+          "playing-around-737"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "playing-around-737"
+  }
+}

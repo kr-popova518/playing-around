@@ -1,0 +1,52 @@
+<section>
+  <div class="log-in-form container-fluid d-flex justify-content-center align-items-center h-100 w-25">
+    <div class="row">
+      <h1 class="text-center">Log in</h1>
+      <div class="col input-fields d-flex justify-content-center align-items-center flex-column">
+        <mat-form-field class="w-100">
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="email" #userName required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" #userPassword required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+      </div>
+
+      <!-- Log in with google -->
+      <div class="col google-login d-flex justify-content-center align-items-center flex-column">
+        <p class="lead" aria-hidden="true">Or</p>
+        <p class="lead" aria-hidden="true">Sign in with</p>
+        <button class="btn btn-danger" type="button" (click)="authService.GoogleAuth()" aria-label="Sign in with Google">Google</button>
+      </div>
+
+      <!--Redirect to forgot passwor component -->
+      <div class="d-flex justify-content-center">
+      <span aria-hidden="true">Forgot your password?</span>
+          <a routerLink="/forgot-password" class="link-reset-password link-danger" aria-label="Click here to send an email if you forgot your password">Click here to send an email </a>
+      </div>
+
+      <!--Login Button -->
+      <div class="d-flex justify-content-center ">
+        <button type="submit" class="btn btn-primary btn-lg btn-block w-100 login-button"
+          (click)="authService.Login(userName.value, userPassword.value)">
+          Login
+        </button>
+      </div>
+
+      <!--Redirect to register component -->
+      <div class="d-flex justify-content-center">
+        <span aria-hidden="true">Don't have an account? </span>
+          <a routerLink="/register-user" class="link-register link-danger" aria-label="Click here to register if you don't have an account">Register!</a>
+      </div>
+
+    </div>
+  </div>
+</section>

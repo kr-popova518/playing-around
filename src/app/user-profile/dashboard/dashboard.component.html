@@ -1,0 +1,29 @@
+<div class="container-fluid d-flex justify-content-center align-items-flex-start" style="height: 50vh;"
+  *ngIf="authService.UserData as user">
+  <div class="card shadow">
+    <div class="card-body">
+      <img src="{{user.photoURL}}" alt="{{user.photoURL}}"
+        class="img-fluid rounded-circle position-absolute" aria-hidden="true"/>
+
+      <!-- Show user data when logged in -->
+      <div class="row">
+        <div class="dashboard">
+          <div class="dashboard-body">
+            <h1 class="text-center">Hello <strong>{{(user.displayName) ? user.displayName : 'New User'}}</strong></h1>
+            <p>User ID: <strong>{{user.uid}}</strong></p>
+            <p>Email: <strong>{{user.email}}</strong></p>
+            <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+            <p>Display Name: <strong>{{(user.displayName) ? user.displayName : 'Not set'}}</strong></p>
+            <p>Phone Number: <strong>{{(user.phoneNumber) ? user.phoneNumber : 'Not set'}}</strong></p>
+            <p>Image URL: <strong>{{(user.photoURL) ? user.photoURL : 'Not set'}}</strong></p>
+
+            <button type="button" class="btn btn-primary resend-verification text-align-center w-100"
+              (click)="authService.sendEmailVerification()" [disabled]="user.emailVerified">
+              Send Verification Email
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

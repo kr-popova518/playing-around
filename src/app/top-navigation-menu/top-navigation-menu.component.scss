@@ -1,10 +1,9 @@
 @import 'src/global-variables.scss';
+@import 'bootstrap/scss/bootstrap';
 
 .nav-toolbar {
     justify-content: space-between;
     min-width: 278px;
-
-    .nav-menu-mobile {}
 
     .nav-menu-desktop {
         display: none;
@@ -13,6 +12,11 @@
         button {
             height: 100%;
         }
+
+        .user-profile {
+            width: 40px;
+            filter: brightness(0) invert(1);
+        }
     }
 
     .title {
@@ -20,11 +24,7 @@
         font-size: x-large;
     }
 
-
-
-    @media (min-width: $tablet) {}
-
-    @media (min-width: $desktop-small) {
+    @media (min-width: $desktop) {
         .nav-menu-desktop {
             display: block;
         }
@@ -33,6 +33,18 @@
             display: none;
         }
     }
+}
+
+.user-only-navigation {
+    a {
+        color: white;
+
+        &:hover {
+            background-color: $light-purple;
+        }
+    }
+
+    background-color: $dark-purple;
 }
 
 ::ng-deep .mobile-expanded {
@@ -56,7 +68,7 @@
     }
 }
 
-@media (min-width: $desktop-small) {
+@media (min-width: $desktop) {
     ::ng-deep .mobile-expanded {
         display: none;
     }

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TopNavigationMenuComponent } from './top-navigation-menu.component';
 
 describe('TopNavigationMenuComponent', () => {

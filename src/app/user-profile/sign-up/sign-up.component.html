@@ -1,0 +1,45 @@
+<section>
+  <div class="sign-up-form container-fluid d-flex justify-content-center align-items-center h-100 w-25">
+    <div class="row">
+      <h1 class="text-center">Register</h1>
+      <div class="col">
+        <mat-form-field class="w-100">
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="email" #userEmail required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" #userPassword required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <!-- Connect with google -->
+      <div class="col google-signup d-flex justify-content-center align-items-center flex-column">
+        <p class="lead" aria-hidden="true">Or</p>
+        <p class="lead" aria-hidden="true">You can use</p>
+        <button class="btn btn-danger" type="button" (click)="authService.GoogleAuth()"
+          aria-label="Register with Google acccount">Google</button>
+      </div>
+
+      <!--Register Button-->
+      <div class="d-flex justify-content-center">
+        <button type="submit" color="primary" class="btn btn-primary btn-lg btn-block w-100 register-button"
+          (click)="authService.Register(userEmail.value, userPassword.value)">
+          Register
+        </button>
+      </div>
+
+      <!-- Back to sign in -->
+      <div class="d-flex justify-content-center redirectToLogin">
+        <span aria-hidden="true">Already have an account?</span>
+        <a routerLink="/sign-in" class="link-back-to-login link-danger" aria-label="Already chave an account? Click here to go to login page">Log In</a>
+      </div>
+    </div>
+  </div>
+</section>
