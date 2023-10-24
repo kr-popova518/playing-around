@@ -1,1 +1,170 @@
+@import 'src/global-variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Alex+Brush');
 
+// Center the container div horizontally and vertically
+.container.homepage {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// Style the todo-container and done-container divs
+.todo-container,
+.done-container {
+    display: inline-block;
+    margin: 0 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    height: 455px;
+    overflow-y: auto;
+}
+
+@media (min-width: $tablet) {
+
+    .todo-container,
+    .done-container {
+        width: 50%;
+        height: 500px;
+    }
+}
+
+@media (min-width: $desktop) {
+
+    .todo-container,
+    .done-container {
+        width: 35%;
+        height: 500px;
+    }
+}
+
+@media (min-width: $desktop-big) {
+
+    .todo-container,
+    .done-container {
+        width: 20%;
+        height: 600px;
+    }
+}
+
+h1 {
+    font-family: 'Alex Brush', cursive;
+    font-size: 42px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bolder;
+    color: $dark-purple;
+}
+
+.todo-list,
+.done-list {
+    min-height: 200px;
+}
+
+.todo-box,
+.done-box {
+
+    margin: 5px;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 8px;
+    border: 1px solid $dark-purple;
+    display: flex;
+    justify-content: space-between;
+    font-size: large;
+    align-items: center;
+    cursor: pointer;
+    word-break: break-all;
+
+    .delete-item {
+        border: none;
+        background: transparent;
+        color: $light-purple;
+        margin-top: 2px;
+        cursor: pointer;
+
+        &:hover {
+            color: $dark-purple;
+        }
+    }
+
+    &:hover {
+        color: $light-purple;
+        border: 2px solid $light-purple;
+        font-weight: bold;
+    }
+
+}
+
+.done-box {
+    color: $dark-purple;
+    text-decoration: line-through;
+}
+
+.tasks-list {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.new-task-input {
+    margin: 20px 0;
+    height: 45px;
+    font-size: 24px;
+
+}
+
+.add-task-button {
+    background-color: $light-purple;
+    border: 0 solid #E5E7EB;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-decoration-thickness: auto;
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    cursor: pointer;
+    transform: rotate(-2deg);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.add-task-button:focus {
+    outline: 0;
+}
+
+.add-task-button:after {
+    content: '';
+    position: absolute;
+    border: 1px solid black;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+.add-task-button:hover:after {
+    bottom: 2px;
+    left: 2px;
+}
+
+@media (min-width: 768px) {
+    .add-task-button {
+        padding: .75rem 3rem;
+        font-size: 1.25rem;
+    }
+}

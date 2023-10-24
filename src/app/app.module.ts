@@ -30,9 +30,11 @@ import { SignUpComponent } from './user-profile/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './user-profile/verify-email/verify-email.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {NgIf} from '@angular/common';
-import {MatInputModule} from '@angular/material/input';
+import { NgIf } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
 import { EditProfileComponent } from './user-profile/edit-profile/edit-profile.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { A11yModule } from '@angular/cdk/a11y';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { EditProfileComponent } from './user-profile/edit-profile/edit-profile.c
     MatFormFieldModule,
     NgIf,
     MatInputModule,
+    DragDropModule,
+    A11yModule,
   ],
   providers: [WeatherDataService, DatePipe, AuthService],
   bootstrap: [AppComponent]
